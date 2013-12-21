@@ -1,0 +1,67 @@
+* What is in this directory? 
+
+  README           this file
+  confclient.c     contains source code of conf client
+  confserver.c     contains source code of conf server
+  confutils.c      routines used by server and client
+  makefile         make file to build confserver and confclient
+
+  goodserver       conf server executable 
+  goodclient       conf client executable
+
+  After you download the entire package, you can run "tar -xvf template.tar" 
+  to decompress these files into a directory called "template".
+
+* What do we have to do?
+
+  You  have to  supply the  missing  code in  the files  'confclient.c',
+  'confserver.c'  and 'confutils.c'.  The location  of missing  code is
+  marked with "FILL HERE". Your task is to fill in the missing code. 
+
+* How do i compile my programs? 
+
+  The 'makefile' is provided just for that purpose. To compile, run
+
+    make
+
+  It will create 'confserver' and 'confclient'. 
+  (Alternatives: make confserver
+                 make confclient
+		 make confserver confclient 
+  )
+
+* How do i test my programs? 
+
+  You are supplied with executables 'goodserver' and 'goodclient'. These
+  are the binaries  of our implementation. You can run  them and see how
+  they  behave.  Your  implementation  is expected  to  produce  similar
+  effect. 
+
+* How do i run these programs? 
+
+  The 'goodserver' program takes  no command line arguments. For example
+  you can run it as follows. 
+
+    ./goodserver
+    admin: started server on 'zeus.ite.gmu.edu' at '36988'
+ 
+  The 'goodclient'  program takes server  host name and port  as command
+  line arguments. To connect to the above server, we can run
+
+    ./goodclient zeus.ite.gmu.edu 36988
+    admin: connected to server on 'zeus.ite.gmu.edu' at '36988' thru '36989'
+
+  You run the  server first and then many clients. Any  thing typed by a
+  client would appear at all other clients. 
+
+* How do i exit from these programs? 
+
+  In  case of  client, if  you type  Ctrl-D, it  will exit.  In  case of
+  server, you can just press Ctrl-C to kill it. 
+
+* Do these programs run on any machine? 
+
+  They are compiled on zeus.ite.gmu.edu, a linux machine. They may work on other
+  machines  with different kernel  versions.  TA will use zeus as the grading 
+  platform.
+

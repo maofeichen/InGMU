@@ -1,0 +1,66 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (X11; I; SunOS 5.6 sun4u) [Netscape]">
+</head>
+<body>
+
+<center>
+<h2>
+<font color="#886633">Project 1: A Conferencing Application</font></h2></center>
+A <font color="#3366FF">conference&nbsp; server</font> is&nbsp; an application&nbsp;
+program&nbsp; that&nbsp; enables conversation&nbsp;&nbsp; between&nbsp;
+multiple&nbsp; <font color="#3366FF">conference clients</font>.&nbsp; Clients
+connect&nbsp; to the server&nbsp; and all&nbsp; the connected&nbsp; clients
+receive&nbsp; all the messages transmitted by any of&nbsp; the clients.
+This group communication is facilitated by the&nbsp; conference server.
+A client reads&nbsp; the text typed by the user&nbsp; and sends it&nbsp;
+to the server.&nbsp; It is the responsibility&nbsp; of the server to relay
+that text to&nbsp; all the other clients. The clients receive the text
+relayed by the server and display it on the screen.
+<p>You need to write two programs: <font color="#3366FF">confserver</font>
+and <font color="#3366FF">confclient</font>. The BSD sockets are used&nbsp;
+for communication between the client and server. The functionality of each
+of these programs is described below.
+<h4>
+confserver</h4>
+
+<div CLASS="source">
+<h5>
+&nbsp;&nbsp;&nbsp; usage : confserver</h5>
+</div>
+The server first creates a socket using&nbsp; the <i><font color="#3366FF">socket()</font></i>
+system call. It then binds its address to the socket using the <i><font color="#3366FF">bind()</font></i>
+system call. It <font color="#3366FF">specfies the port number as 0 </font>which
+allows the system to assign an unused port number for the server. The assigned
+port number is displayed on the screen. Then <i><font color="#3366FF">listen()
+</font></i>call is used to indicate that the server is now ready to receive
+connect requests.
+<p>The server's job is wait for either connect/disconnect requests or messages
+from clients. If it receives a connect request, it accepts the connection
+and adds it&nbsp; to the list of established&nbsp; connections which it
+has&nbsp; to monitor&nbsp; for messages.&nbsp; If it receives a disconnect
+request,&nbsp; it closes the connection and removes the client from the
+list of established connections. Otherwise, it forwards the message to
+all other clients. This monitoring of events from several connections can
+be performed by using <i><font color="#3366FF">select()</font></i> system
+call.
+<h4>
+confclient</h4>
+
+<div CLASS="source">
+<h5>
+&nbsp;&nbsp;&nbsp; <font size=-1>usage : confclient <i>&lt;servhost> &lt;servport></i></font></h5>
+</div>
+The client first creates a socket using the <i><font color="#3366FF">socket()</font></i>
+system call.&nbsp; It then connects to the server using the <i><font color="#3366FF">connect()</font></i>
+system call. The whereabouts of the server are passed as command line arguments.
+<p>One the connection is established, the client's job&nbsp; is to&nbsp;
+wait&nbsp; for either&nbsp; user&nbsp; input from&nbsp; the keyboard or
+messages from the server. Inputs from the user are sent to the sever and
+the messages from the server are displayed on the screen. Once again, <i><font color="#3366FF">select()
+</font></i>call is used for monitoring the input from keyboard and socket.
+<br>&nbsp;
+</body>
+</html>
