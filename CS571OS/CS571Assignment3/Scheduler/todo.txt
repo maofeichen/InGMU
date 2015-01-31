@@ -1,0 +1,8 @@
+- print stack trace to use sysout
+- print log in each catch block
+- beautify logging
+- replace server by node in printouts
+- re-factor packages into modules
+- re-define private / package properly
+- remove @author ychandol
+- write / call falut detection code where there is node.setToken()

@@ -1,0 +1,1 @@
+java -classpath ".;classes" os.assignment3.server.DepartmentNode %1 %2 %3
